@@ -1,0 +1,74 @@
+/*重置样式*/
+*{margin:0;padding:0;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;font-family:Arial,Helvetica, "微软雅黑";}
+img{border:none;max-width:100%;vertical-align:middle;}
+body,p,form,input,button,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6{margin:0;padding:0;list-style:none;overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+input,textarea{-webkit-user-select:text;-ms-user-select:text;user-select:text;/*-webkit-appearance:none;*/font-size:1em;line-height:1.5em;}
+table{border-collapse:collapse;}
+input,select,textarea{outline:none;border:none;background:none;}
+a{outline:0;cursor:pointer;*star:expression(this.onbanner=this.blur());}
+a:link,a:active{text-decoration:none;}
+a:visited{text-decoration:none;}
+a:hover{color:#3498db;text-decoration:underline;}
+a{text-decoration:none;-webkit-touch-callout:none;}
+em,i{font-style:normal;}
+li,ol{list-style:none;}
+html{font-size:10px;}
+.clear{clear:both;height:0;font-size:0;line-height:0;visibility:hidden; overflow:hidden;} 
+.fl{float:left;}
+.fr{float:right;}
+body{ margin:0 auto; min-width:320px;color:#555; background:#fef9f1;height:100%;-webkit-text-size-adjust: 100%!important;}
+// 一些样式
+a,button,input,optgroup,select,textarea {
+    -webkit-tap-highlight-color:rgba(0,0,0,0); /*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/
+}
+a, img {
+    -webkit-touch-callout: none; /*禁止长按链接与图片弹出菜单*/
+}
+body{
+    -webkit-overflow-scrolling:touch;
+}
+/* 避免移动端输入时输入框变大*/ 
+input[type="text"],
+input[type="number"],
+input[type="password"],
+select,
+textarea {
+  font-size: 14px;
+}
+/*底部*/
+@media screen and (max-width:320px){body,input,select{font-size:10px}}
+@media screen and (min-width:320px){body,input,select{font-size:11.25px}}
+@media screen and (min-width:400px){body,input,select{font-size:12.5px}}
+@media screen and (min-width:480px){body,input,select{font-size:13.75px}}
+@media screen and (min-width:560px){body,input,select{font-size:15px}}
+@media screen and (min-width:600px){body,input,select{font-size:16.25px}}
+@media screen and (min-width:640px){body,input,select{font-size:18px}}
+/*显示无数据详情*/
+
+/*关于移动端字体的调节问题*/
+/**
+ * [以iPhone6的设计稿为例js动态设置文档 rem 值]
+ * @param  {[type]} currClientWidth [当前客户端的宽度]
+ * @param  {[type]} fontValue [计算后的 fontvalue值]
+ * @return {[type]}     [description]
+ */
+<script>
+    var currClientWidth, fontValue,originWidth;
+    //originWidth用来设置设计稿原型的屏幕宽度（这里是以 Iphone 6为原型的设计稿）
+    originWidth=375;
+    __resize();
+
+    //注册 resize事件
+    window.addEventListener('resize', __resize, false);
+
+    function __resize() {
+        currClientWidth = document.documentElement.clientWidth;
+        //这里是设置屏幕的最大和最小值时候给一个默认值
+        if (currClientWidth > 640) currClientWidth = 640;
+        if (currClientWidth < 320) currClientWidth = 320;
+        //
+        fontValue = ((62.5 * currClientWidth) /originWidth).toFixed(2);
+        document.documentElement.style.fontSize = fontValue + '%';
+    }
+    </script>
